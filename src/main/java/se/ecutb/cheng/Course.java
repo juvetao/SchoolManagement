@@ -39,9 +39,9 @@ public class Course {
         return students;
     }
 
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
-    }
+//    public void setCourseId(int courseId) {
+//        this.courseId = courseId;
+//    }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;

@@ -40,9 +40,9 @@ public class Student {
         return address;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
+//    public void setStudentId(int studentId) {
+//        this.studentId = studentId;
+//    }
 
     public void setName(String name) {
         this.name = name;
