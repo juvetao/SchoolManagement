@@ -1,9 +1,6 @@
 package se.ecutb.cheng;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import se.ecutb.cheng.data_storage.StudentDaoList;
 
 import java.time.LocalDate;
@@ -64,10 +61,20 @@ public class StudentDaoListTest {
     }
 
     @Test
-    public void find_by_id_test(){
+    public void find_by_id_test_successfully(){
         testObject.saveStudent(student1);
+        System.out.println(testObject.findAll().toString());
         Student expectedStudent = student1;
-        Student actualStudent = testObject.findById(1);
+        //Student actualStudent = testObject.findById(1);
+        Student actualStudent = testObject.findById(student1.getStudentId());
+        Assert.assertEquals(expectedStudent, actualStudent);
+    }
+
+    @Test
+    public void find_by_id_test_fail(){
+        testObject.saveStudent(student1);
+        Student expectedStudent = null;
+        Student actualStudent = testObject.findById(3);
         Assert.assertEquals(expectedStudent, actualStudent);
     }
 
@@ -85,6 +92,7 @@ public class StudentDaoListTest {
 
     @Test
     public void delete_student_test_successfully(){
+        testObject.saveStudent(student1);
         testObject.deleteStudent(student1);
         int expectedValue = 0;
         int actualValue = testObject.findAll().size();

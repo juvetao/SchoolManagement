@@ -10,6 +10,7 @@ public class Course {
     private LocalDate startDate;
     private int weekDuration;
     private List<Student> students;
+    private static int courseCountet;
 
     public Course(int courseId, String courseName, LocalDate startDate, int weekDuration, List<Student> students) {
         this.courseId = courseId;
@@ -17,6 +18,10 @@ public class Course {
         this.startDate = startDate;
         this.weekDuration = weekDuration;
         this.students = students;
+    }
+
+    public Course(String courseName, LocalDate startDate, int weekDuration, List<Student> students){
+        this(++courseCountet, courseName, startDate, weekDuration, students);
     }
 
     public int getCourseId() {
@@ -38,10 +43,6 @@ public class Course {
     public List<Student> getStudents() {
         return students;
     }
-
-//    public void setCourseId(int courseId) {
-//        this.courseId = courseId;
-//    }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
