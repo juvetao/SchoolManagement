@@ -32,7 +32,7 @@ public class CourseTest {
     public void register_student_test(){
         Student s1 = new Student("John Johansson", "jj@gmail.com", "Gyllenstjansvagen 7");
         course.register(s1);
-        int expectedValue = 1;
+        int expectedValue = 3;
         Assert.assertEquals(expectedValue, course.getStudentCounter());
     }
 

@@ -92,7 +92,7 @@ public class Course {
             System.out.println(student.getName() + " was added to " + getCourseName());
             students.add(student);
         }else{
-            System.out.println(student.getName() + " is allready in " + getCourseName());
+            System.out.println(student.getName() + " is already in " + getCourseName());
         }
     }
 
