@@ -1,6 +1,7 @@
-package se.ecutb.cheng;
+package se.ecutb.cheng.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -86,14 +87,23 @@ public class Course {
                 '}';
     }
 
-    public void register(Student student) {
-                students.add(student);
-//                System.out.println(students.toString());
+    public void register(Student student){
+        if(!students.contains(student)){
+            System.out.println(student.getName() + " was added to " + getCourseName());
+            students.add(student);
+        }else{
+            System.out.println(student.getName() + " is allready in " + getCourseName());
+        }
     }
 
-    public void unregister(Student student) {
-                students.remove(student);
-                System.out.println(students.toString());
+    public void unregister(Student student){
+        if(students.contains(student)){
+            System.out.println(student.getName() + " was removed from " + getCourseName());
+            students.remove(student);
+        }else{
+            System.out.println(student.getName() + " is not in " + getCourseName());
+        }
+
     }
 
     public int getStudentCounter(){

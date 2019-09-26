@@ -3,6 +3,8 @@ package se.ecutb.cheng;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import se.ecutb.cheng.model.Course;
+import se.ecutb.cheng.model.Student;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,16 +29,10 @@ public class CourseTest {
     //check whether student can be removed and if the studentCounter decreases, as removed;
 
     @Test
-    public void init(){
-        int expectedValue = 2;
-        Assert.assertEquals(expectedValue, course.getStudentCounter());
-    }
-
-    @Test
     public void register_student_test(){
         Student s1 = new Student("John Johansson", "jj@gmail.com", "Gyllenstjansvagen 7");
         course.register(s1);
-        int expectedValue = 3;
+        int expectedValue = 1;
         Assert.assertEquals(expectedValue, course.getStudentCounter());
     }
 

@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import se.ecutb.cheng.data_storage.CourseDaoList;
+import se.ecutb.cheng.model.Course;
+import se.ecutb.cheng.model.Student;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,16 +15,20 @@ import java.util.List;
 public class CourseDaoListTest {
     CourseDaoList testObject;
     Course course1;
+    Student student1, student2;
+    List<Student> students;
 
     @Before
     public void setup(){
-        Student student1 = new Student("Cheng Tao", "cheng.tao86@gmail.com", "Skomakaregatan 13");
-        List<Student> students = new ArrayList<Student>(Arrays.asList(student1));
+        student1 = new Student("Cheng Tao", "cheng.tao86@gmail.com", "Skomakaregatan 13");
+        student2 = new Student("Emilie Johansson", "ej@gmail.com", "Arklimastaregatan 14A");
+        students = new ArrayList<Student>(Arrays.asList(student1, student2));
         course1 = new Course("Programmering i Java", LocalDate.parse("2019-08-20"), 6, students);
+        testObject = new CourseDaoList();
     }
 
     @Test
-    public void save_student_test_successfully(){
+    public void save_course_test_successfully(){
         Course expectedCourse = course1;
         Course actualCourse = testObject.saveCourse(course1);
         System.out.println("Actual: "+actualCourse);
@@ -30,7 +36,7 @@ public class CourseDaoListTest {
     }
 
     @Test
-    public void save_student_test_failed(){
+    public void save_course_test_failed(){
         Course temp = course1;
         Course temp1 = testObject.saveCourse(course1);
         Course actual = testObject.saveCourse(course1);
@@ -57,10 +63,9 @@ public class CourseDaoListTest {
     @Test
     public void find_by_name_test(){
         testObject.saveCourse(course1);
-        Student student2 =new Student("Cheng Tao", "ct@gmail.com", "Kungsgatan 11");
-        List<Student> students = new ArrayList<Student>(Arrays.asList(student2));
         Course course2 = new Course("HTML", LocalDate.parse("2019-10-01"), 5, students);
         testObject.saveCourse(course2);
+
 
         List<Course> expectedCourses = testObject.findByName("HTML");
         List<Course> actualCourses = new ArrayList<>();
@@ -71,8 +76,6 @@ public class CourseDaoListTest {
     @Test
     public void find_by_date_test() {
         testObject.saveCourse(course1);
-        Student student2 = new Student("Cheng Tao", "ct@gmail.com", "Kungsgatan 11");
-        List<Student> students = new ArrayList<Student>(Arrays.asList(student2));
         Course course2 = new Course("HTML", LocalDate.parse("2019-10-01"), 5, students);
         testObject.saveCourse(course2);
 
@@ -118,4 +121,3 @@ public class CourseDaoListTest {
 
 
 
-}

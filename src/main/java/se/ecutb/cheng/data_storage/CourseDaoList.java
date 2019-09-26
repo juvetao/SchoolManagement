@@ -1,6 +1,6 @@
 package se.ecutb.cheng.data_storage;
 
-import se.ecutb.cheng.Course;
+import se.ecutb.cheng.model.Course;
 import se.ecutb.cheng.data_access.CourseDao;
 
 import java.time.LocalDate;
@@ -48,7 +48,7 @@ public class CourseDaoList implements CourseDao {
     public List<Course> findByDate(LocalDate date) {
         List<Course> c = new ArrayList<>();
         for(Course course: courses){
-            if(course.getStartDate() == date){
+            if(course.getStartDate().equals(date)){
                 c.add(course);
             }
         }

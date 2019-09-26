@@ -1,6 +1,6 @@
 package se.ecutb.cheng.data_access;
 
-import se.ecutb.cheng.Course;
+import se.ecutb.cheng.model.Course;
 
 import java.time.LocalDate;
 import java.util.List;

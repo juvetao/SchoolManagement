@@ -1,6 +1,6 @@
 package se.ecutb.cheng.data_access;
 
-import se.ecutb.cheng.Student;
+import se.ecutb.cheng.model.Student;
 
 import java.util.List;
 

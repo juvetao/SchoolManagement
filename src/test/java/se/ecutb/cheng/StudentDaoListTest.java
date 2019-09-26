@@ -2,10 +2,9 @@ package se.ecutb.cheng;
 
 import org.junit.*;
 import se.ecutb.cheng.data_storage.StudentDaoList;
+import se.ecutb.cheng.model.Student;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class StudentDaoListTest {

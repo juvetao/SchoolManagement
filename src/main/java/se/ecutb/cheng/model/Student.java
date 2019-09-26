@@ -1,4 +1,4 @@
-package se.ecutb.cheng;
+package se.ecutb.cheng.model;
 
 import java.util.Objects;
 
